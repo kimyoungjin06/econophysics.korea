@@ -77,6 +77,17 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="partners" aria-labelledby="partners-title">
+        <div className="shell partners-inner">
+          <div><p className="section-no">04 / ORGANIZERS</p><h2 id="partners-title">함께하는 기관</h2></div>
+          <dl className="partner-list">
+            <div><dt>주최</dt><dd>경제사회물리연구회</dd></div>
+            <div><dt>공동 주관</dt><dd>전남대학교 데이터사이언스대학원<br />부산대학교 물리학과</dd></div>
+            <div><dt>후원</dt><dd>아시아태평양 이론물리센터 <span>APCTP</span></dd></div>
+          </dl>
+        </div>
+      </section>
+
       <footer><div className="shell footer-inner"><div><span className="footer-mark">경사연</span><p>경제사회물리연구회<br /><a href="mailto:econophysics.korea@gmail.com">econophysics.korea@gmail.com</a></p></div><div className="footer-links"><a href="/about">연구회 소개</a><a href="#top">맨 위로 ↑</a><a href="https://sites.google.com/view/econophysics/" target="_blank" rel="noreferrer">기존 Google Sites 보기 ↗</a></div></div></footer>
       <nav className="mobile-quick-nav" aria-label="모바일 빠른 메뉴"><a href="#program">일정</a><a href="#location">길찾기</a><a href="#notices">현장 안내</a></nav>
     </main>
