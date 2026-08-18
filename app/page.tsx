@@ -6,7 +6,8 @@ const dayTwo = event.schedule.filter((item) => item.date === "2026-08-22");
 
 export default function Home() {
   return (
-    <main>
+    <main id="main-content">
+      <a className="skip-link" href="#program">프로그램으로 바로가기</a>
       <section className="hero" id="top">
         <nav className="nav shell" aria-label="주요 메뉴">
           <a className="brand" href="#top"><span>경사연</span><b>경제사회물리연구회</b></a>
@@ -67,15 +68,16 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="notices">
+      <section className="notices" id="notices">
         <div className="shell notice-grid">
           <article><span>DINNER</span><h3>효원주가</h3><p>8월 21일 공식 일정 후 이동 · 제2물리관에서 약 600m · 도보 약 10분</p><a href="https://map.kakao.com/?q=%ED%9A%A8%EC%9B%90%EC%A3%BC%EA%B0%80" target="_blank" rel="noreferrer">카카오맵에서 보기 ↗</a></article>
-          <article><span>PARKING</span><h3>주차 안내</h3><p>교내 주차 공간이 협소하고 할인 적용 후에도 주차비가 높은 편<br />대중교통 이용 권장 · 차량 이용 시 당일 운영진에게 할인권 문의</p></article>
-          <article><span>STAY</span><h3>숙박 안내</h3><p>별도 숙소 지원 없음 · 숙박이 필요한 경우 개별 예약</p></article>
+          <article><span>PARKING</span><h3>주차 안내</h3><p>교내 주차 공간이 협소하며, 할인 적용 후에도 주차 요금 부담이 있을 수 있습니다. 가급적 대중교통을 이용해 주세요. 차량 이용 시 행사 당일 운영진에게 주차 할인권을 문의해 주세요.</p></article>
+          <article><span>STAY</span><h3>숙박 안내</h3><p>금번 모임에서는 별도의 숙소를 지원하지 않습니다. 숙박이 필요한 참가자께서는 개별적으로 예약해 주세요.</p></article>
         </div>
       </section>
 
-      <footer><div className="shell footer-inner"><div><span className="footer-mark">경사연</span><p>경제사회물리연구회<br />econophysics.korea@gmail.com</p></div><div className="footer-links"><a href="#top">맨 위로 ↑</a><a href="https://sites.google.com/view/econophysics/" target="_blank" rel="noreferrer">기존 Google Sites 보기 ↗</a></div></div></footer>
+      <footer><div className="shell footer-inner"><div><span className="footer-mark">경사연</span><p>경제사회물리연구회<br /><a href="mailto:econophysics.korea@gmail.com">econophysics.korea@gmail.com</a></p></div><div className="footer-links"><a href="#top">맨 위로 ↑</a><a href="https://sites.google.com/view/econophysics/" target="_blank" rel="noreferrer">기존 Google Sites 보기 ↗</a></div></div></footer>
+      <nav className="mobile-quick-nav" aria-label="모바일 빠른 메뉴"><a href="#program">일정</a><a href="#location">길찾기</a><a href="#notices">현장 안내</a></nav>
     </main>
   );
 }
