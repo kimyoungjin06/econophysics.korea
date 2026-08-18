@@ -42,7 +42,7 @@ export default function Home() {
 
       <section className="program" id="program">
         <div className="shell">
-          <header className="section-head"><div><p className="section-no">02 / PROGRAM</p><h2>프로그램</h2></div><span className="status">잠정 일정</span></header>
+          <header className="section-head"><div><p className="section-no">02 / PROGRAM</p><h2>프로그램</h2></div><span className="status">{event.status}</span></header>
           <div className="day-block">
             <div className="day-label"><strong>21</strong><span>AUG<br />FRI</span></div>
             <div className="schedule">
