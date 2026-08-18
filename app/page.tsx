@@ -18,10 +18,11 @@ export default function Home() {
         <div className="hero-body shell">
           <p className="eyebrow">ECONOPHYSICS KOREA · SUMMER WORKSHOP 2026</p>
           <h1>2026 여름<br />워크숍</h1>
-          <p className="hero-description">경제·금융·사회 시스템을 바라보는 이론과 방법,<br />그리고 공동 연구의 가능성을 나누는 이틀</p>
+          <p className="hero-description">경제·금융·사회 현상을 주제로 한 연구 발표와 토론<br />향후 연구 방향과 협업 주제를 함께 논의합니다</p>
           <div className="hero-meta">
             <div><small>DATE</small><strong>2026. 08. 21—22</strong></div>
             <div><small>VENUE</small><strong>부산대학교 제2물리관 106호</strong></div>
+            <div><small>PARTICIPANTS</small><strong>30명+</strong></div>
           </div>
           <div className="hero-actions">
             <a className="button primary" href="#program">프로그램 확인 <span>↓</span></a>
@@ -31,12 +32,14 @@ export default function Home() {
         <div className="ticker" aria-hidden="true"><span>DATA · NETWORKS · FINANCE · SOCIETY · COMPLEX SYSTEMS · COLLABORATION · </span></div>
       </section>
 
-      <section className="intro shell" id="registration">
-        <div><p className="section-no">01 / ABOUT</p><h2>워크숍 안내</h2></div>
+      <section className="intro shell" id="overview">
+        <div><p className="section-no">01 / OVERVIEW</p><h2>연구 발표와<br />공동 논의를 위한 이틀</h2></div>
         <div className="intro-copy">
-          <p>경제·금융·사회 현상을 연구하는 구성원들이 최신 연구와 방법론을 공유하고, 함께 발전시킬 연구 주제를 논의하는 자리</p>
-          <p className="supporting-copy">참석 인원과 식사 준비를 위한 사전 참가 조사</p>
-          <a className="text-link disabled" aria-disabled="true">참가 조사 링크 · 추후 공개</a>
+          <p>경제·금융·사회 현상에 관한 최신 연구와 분석 방법을 공유합니다. 발표와 토론을 바탕으로 연구회의 향후 방향과 함께 추진할 연구 주제를 논의합니다.</p>
+          <div className="participation-status">
+            <span>참가 신청 마감</span>
+            <strong>참석 예정 30명+</strong>
+          </div>
         </div>
       </section>
 
