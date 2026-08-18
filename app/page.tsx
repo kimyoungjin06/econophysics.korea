@@ -17,13 +17,14 @@ export default function Home() {
         </nav>
         <div className="hero-body shell">
           <p className="eyebrow">ECONOPHYSICS KOREA · SUMMER WORKSHOP 2026</p>
-          <h1>경제와 사회를<br />복잡계의 언어로.</h1>
+          <h1>2026 여름<br />워크숍</h1>
+          <p className="hero-description">경제·금융·사회 시스템을 바라보는 이론과 방법,<br />그리고 공동 연구의 가능성을 나누는 이틀</p>
           <div className="hero-meta">
             <div><small>DATE</small><strong>2026. 08. 21—22</strong></div>
             <div><small>VENUE</small><strong>부산대학교 제2물리관 106호</strong></div>
           </div>
           <div className="hero-actions">
-            <a className="button primary" href="#registration">참가 안내 보기 <span>↗</span></a>
+            <a className="button primary" href="#program">프로그램 확인 <span>↓</span></a>
             <a className="button ghost" href="#location">오시는 길</a>
           </div>
         </div>
@@ -31,10 +32,10 @@ export default function Home() {
       </section>
 
       <section className="intro shell" id="registration">
-        <div><p className="section-no">01 / INVITATION</p><h2>여름의 부산에서<br />나누는 새로운 관점</h2></div>
+        <div><p className="section-no">01 / ABOUT</p><h2>워크숍 안내</h2></div>
         <div className="intro-copy">
-          <p>경제·금융·사회 현상을 바라보는 새로운 방법론과 공동 연구의 가능성 · 2026년 여름 · 부산대학교</p>
-          <p>원활한 행사와 식사 준비를 위한 사전 참가 조사</p>
+          <p>경제·금융·사회 현상을 연구하는 구성원들이 최신 연구와 방법론을 공유하고, 함께 발전시킬 연구 주제를 논의하는 자리</p>
+          <p className="supporting-copy">참석 인원과 식사 준비를 위한 사전 참가 조사</p>
           <a className="text-link disabled" aria-disabled="true">참가 조사 링크 · 추후 공개</a>
         </div>
       </section>
@@ -70,8 +71,8 @@ export default function Home() {
       <section className="notices">
         <div className="shell notice-grid">
           <article><span>DINNER</span><h3>효원주가</h3><p>8월 21일 공식 일정 후 이동 · 제2물리관에서 약 600m · 도보 약 10분</p><a href="https://map.kakao.com/?q=%ED%9A%A8%EC%9B%90%EC%A3%BC%EA%B0%80" target="_blank" rel="noreferrer">카카오맵에서 보기 ↗</a></article>
-          <article><span>PARKING</span><h3>대중교통 이용 권장</h3><p>협소한 교내 주차 공간 · 할인 적용 후에도 비교적 높은 주차비<br />차량 이용 시 당일 운영진에게 할인권 문의</p></article>
-          <article><span>STAY</span><h3>개별 숙소 예약</h3><p>금번 모임은 별도 숙소 지원 없음 · 숙박이 필요한 경우 개별 예약</p></article>
+          <article><span>PARKING</span><h3>주차 안내</h3><p>교내 주차 공간이 협소하고 할인 적용 후에도 주차비가 높은 편<br />대중교통 이용 권장 · 차량 이용 시 당일 운영진에게 할인권 문의</p></article>
+          <article><span>STAY</span><h3>숙박 안내</h3><p>별도 숙소 지원 없음 · 숙박이 필요한 경우 개별 예약</p></article>
         </div>
       </section>
 
