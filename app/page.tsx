@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { KakaoMap } from "./KakaoMap";
 import event from "../content/events/2026-summer-workshop.json";
 
@@ -37,7 +38,7 @@ export default function Home() {
             <span>참가 신청 마감</span>
             <strong>참석 예정 30명+</strong>
           </div>
-          <p className="history-note"><b>SINCE 2011</b><span>2011년 2월 첫 기록부터 이어온 27번째 모임</span><a href="/about">연구회 소개 →</a></p>
+          <p className="history-note"><b>SINCE 2011</b><span>기존 아카이브 기준, 이번 부산 워크숍은 27번째 모임입니다.</span><a href="/about">연구회 소개 →</a></p>
         </div>
       </section>
 
@@ -79,11 +80,11 @@ export default function Home() {
 
       <section className="partners" aria-labelledby="partners-title">
         <div className="shell partners-inner">
-          <div><p className="section-no">04 / ORGANIZERS</p><h2 id="partners-title">함께하는 기관</h2></div>
+          <div><p className="section-no">04 / ORGANIZERS</p><h2 id="partners-title">주최·주관<br />및 후원</h2><p className="partners-copy">이번 워크숍을 함께 준비하고 지원하는 기관입니다.</p></div>
           <dl className="partner-list">
             <div><dt>주최</dt><dd>경제사회물리연구회</dd></div>
             <div><dt>공동 주관</dt><dd>전남대학교 데이터사이언스대학원<br />부산대학교 물리학과</dd></div>
-            <div><dt>후원</dt><dd>아시아태평양 이론물리센터 <span>APCTP</span></dd></div>
+            <div className="supporter-row"><dt>후원</dt><dd><Image src="/apctp-logo.svg" width={319} height={40} alt="아시아태평양이론물리센터 APCTP" /><span>Asia Pacific Center for Theoretical Physics</span></dd></div>
           </dl>
         </div>
       </section>
