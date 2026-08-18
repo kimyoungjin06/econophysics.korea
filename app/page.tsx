@@ -8,9 +8,6 @@ export default function Home() {
   return (
     <main>
       <section className="hero" id="top">
-        <div className="network" aria-hidden="true">
-          {Array.from({ length: 16 }, (_, i) => <i key={i} />)}
-        </div>
         <nav className="nav shell" aria-label="주요 메뉴">
           <a className="brand" href="#top"><span>경사연</span><b>경제사회물리연구회</b></a>
           <div><a href="#program">프로그램</a><a href="#location">오시는 길</a></div>
@@ -18,7 +15,7 @@ export default function Home() {
         <div className="hero-body shell">
           <p className="eyebrow">ECONOPHYSICS KOREA · SUMMER WORKSHOP 2026</p>
           <h1>2026 여름<br />워크숍</h1>
-          <p className="hero-description">경제·금융·사회 현상을 주제로 한 연구 발표와 토론<br />향후 연구 방향과 협업 주제를 함께 논의합니다</p>
+          <p className="hero-description">경제·금융·사회 현상을 주제로 연구 결과와 분석 방법을 공유하고<br />향후 연구 방향과 협업 주제를 논의합니다.</p>
           <div className="hero-meta">
             <div><small>DATE</small><strong>2026. 08. 21—22</strong></div>
             <div><small>VENUE</small><strong>부산대학교 제2물리관 106호</strong></div>
@@ -29,13 +26,12 @@ export default function Home() {
             <a className="button ghost" href="#location">오시는 길</a>
           </div>
         </div>
-        <div className="ticker" aria-hidden="true"><span>DATA · NETWORKS · FINANCE · SOCIETY · COMPLEX SYSTEMS · COLLABORATION · </span></div>
       </section>
 
       <section className="intro shell" id="overview">
-        <div><p className="section-no">01 / OVERVIEW</p><h2>연구 발표와<br />공동 논의를 위한 이틀</h2></div>
+        <div><p className="section-no">01 / OVERVIEW</p><h2>워크숍 개요</h2></div>
         <div className="intro-copy">
-          <p>경제·금융·사회 현상에 관한 최신 연구와 분석 방법을 공유합니다. 발표와 토론을 바탕으로 연구회의 향후 방향과 함께 추진할 연구 주제를 논의합니다.</p>
+          <p>경제·금융·사회 현상에 관한 최신 연구와 분석 방법을 공유합니다. 발표 이후에는 연구회의 운영 방향과 공동 연구 주제를 논의합니다.</p>
           <div className="participation-status">
             <span>참가 신청 마감</span>
             <strong>참석 예정 30명+</strong>
