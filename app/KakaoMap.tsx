@@ -21,6 +21,7 @@ export function KakaoMap() {
       return;
     }
     const timer = window.setTimeout(() => setStatus((current) => current === "loading" ? "error" : current), 10000);
+    let removeResizeListener: (() => void) | undefined;
     const script = document.createElement("script");
     script.src = `https://dapi.kakao.com/v2/maps/sdk.js?appkey=${key}&autoload=false&libraries=services`;
     script.async = true;
@@ -50,14 +51,23 @@ export function KakaoMap() {
         if (done === places.length) {
           const validPath = path.filter(Boolean);
           if (validPath.length > 1) new kakao.maps.Polyline({ map, path: validPath, strokeWeight: 4, strokeColor: "#F3C623", strokeOpacity: .95, strokeStyle: "solid" });
-          if (validPath.length) map.setBounds(bounds, 60, 60, 60, 60);
+          if (validPath.length) {
+            const fitViewport = () => {
+              const mobile = window.matchMedia("(max-width: 760px)").matches;
+              map.relayout();
+              map.setBounds(bounds, mobile ? 24 : 56, mobile ? 20 : 56, mobile ? 24 : 56, mobile ? 20 : 56);
+            };
+            window.requestAnimationFrame(fitViewport);
+            window.addEventListener("resize", fitViewport);
+            removeResizeListener = () => window.removeEventListener("resize", fitViewport);
+          }
           setStatus(validPath.length ? "ready" : "error");
         }
       }));
       });
     };
     document.head.appendChild(script);
-    return () => { window.clearTimeout(timer); script.remove(); };
+    return () => { window.clearTimeout(timer); removeResizeListener?.(); script.remove(); };
   }, []);
 
   return <div className="map-wrap">
