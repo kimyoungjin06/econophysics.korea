@@ -11,7 +11,7 @@ export default function Home() {
       <section className="hero" id="top">
         <nav className="nav shell" aria-label="주요 메뉴">
           <a className="brand" href="#top"><span>경사연</span><b>경제사회물리연구회</b></a>
-          <div><a href="#program">프로그램</a><a href="#location">오시는 길</a></div>
+          <div><a href="#program">프로그램</a><a href="#location">오시는 길</a><a href="/about">연구회 소개</a></div>
         </nav>
         <div className="hero-body shell">
           <p className="eyebrow">ECONOPHYSICS KOREA · SUMMER WORKSHOP 2026</p>
@@ -37,6 +37,7 @@ export default function Home() {
             <span>참가 신청 마감</span>
             <strong>참석 예정 30명+</strong>
           </div>
+          <p className="history-note"><b>SINCE 2011</b><span>2011년 2월 첫 기록부터 이어온 27번째 모임</span><a href="/about">연구회 소개 →</a></p>
         </div>
       </section>
 
@@ -76,7 +77,7 @@ export default function Home() {
         </div>
       </section>
 
-      <footer><div className="shell footer-inner"><div><span className="footer-mark">경사연</span><p>경제사회물리연구회<br /><a href="mailto:econophysics.korea@gmail.com">econophysics.korea@gmail.com</a></p></div><div className="footer-links"><a href="#top">맨 위로 ↑</a><a href="https://sites.google.com/view/econophysics/" target="_blank" rel="noreferrer">기존 Google Sites 보기 ↗</a></div></div></footer>
+      <footer><div className="shell footer-inner"><div><span className="footer-mark">경사연</span><p>경제사회물리연구회<br /><a href="mailto:econophysics.korea@gmail.com">econophysics.korea@gmail.com</a></p></div><div className="footer-links"><a href="/about">연구회 소개</a><a href="#top">맨 위로 ↑</a><a href="https://sites.google.com/view/econophysics/" target="_blank" rel="noreferrer">기존 Google Sites 보기 ↗</a></div></div></footer>
       <nav className="mobile-quick-nav" aria-label="모바일 빠른 메뉴"><a href="#program">일정</a><a href="#location">길찾기</a><a href="#notices">현장 안내</a></nav>
     </main>
   );
