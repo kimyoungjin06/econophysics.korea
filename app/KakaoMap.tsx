@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 
 declare global { interface Window { kakao?: any } }
 
-const places = [{ label: "포항 APCTP", query: "포항 아시아태평양이론물리센터", marker: "1" }];
+const places = [{ label: "포항 APCTP", query: "포스텍 무은재기념관", marker: "1" }];
 
 export function KakaoMap() {
   const mapRef = useRef<HTMLDivElement>(null);
@@ -65,11 +65,11 @@ export function KakaoMap() {
 
   return <>
     <div className="map-wrap">
-      <div ref={mapRef} className="map-canvas" role="img" aria-label="포항 APCTP 위치 지도" />
-      {status !== "ready" ? <div className="map-fallback"><div className="map-copy"><small>KAKAO MAP</small><strong>포항 APCTP · 512호</strong><p>{status === "loading" ? "지도를 불러오는 중입니다." : "지도를 불러오지 못했습니다. 아래 카카오맵 링크를 이용해 주세요."}</p></div></div> : null}
+      <div ref={mapRef} className="map-canvas" role="img" aria-label="포스텍 무은재기념관 APCTP 위치 지도" />
+      {status !== "ready" ? <div className="map-fallback"><div className="map-copy"><small>KAKAO MAP</small><strong>APCTP (포스텍 무은재기념관) 512호 강의실</strong><p>{status === "loading" ? "지도를 불러오는 중입니다." : "지도를 불러오지 못했습니다. 아래 카카오맵 링크를 이용해 주세요."}</p></div></div> : null}
     </div>
     <nav className="map-links" aria-label="카카오맵 바로가기">
-      <a href="https://map.kakao.com/?q=%ED%8F%AC%ED%95%AD%20APCTP" target="_blank" rel="noreferrer"><span>01</span> 포항 APCTP 위치 ↗</a>
+      <a href="https://map.kakao.com/?q=%ED%8F%AC%EC%8A%A4%ED%85%8D%20%EB%AC%B4%EC%9D%80%EC%9E%AC%EA%B8%B0%EB%85%90%EA%B4%80" target="_blank" rel="noreferrer"><span>01</span> 무은재기념관 위치 ↗</a>
     </nav>
   </>;
 }
