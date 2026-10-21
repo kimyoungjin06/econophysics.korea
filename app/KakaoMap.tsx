@@ -66,7 +66,7 @@ export function KakaoMap() {
   return <>
     <div className="map-wrap">
       <div ref={mapRef} className="map-canvas" role="img" aria-label="포항 APCTP 위치 지도" />
-      {status !== "ready" ? <div className="map-fallback"><div className="map-copy"><small>KAKAO MAP</small><strong>포항 APCTP · 강의실 TBA</strong><p>{status === "loading" ? "지도를 불러오는 중입니다." : "지도를 불러오지 못했습니다. 아래 카카오맵 링크를 이용해 주세요."}</p></div></div> : null}
+      {status !== "ready" ? <div className="map-fallback"><div className="map-copy"><small>KAKAO MAP</small><strong>포항 APCTP · 512호</strong><p>{status === "loading" ? "지도를 불러오는 중입니다." : "지도를 불러오지 못했습니다. 아래 카카오맵 링크를 이용해 주세요."}</p></div></div> : null}
     </div>
     <nav className="map-links" aria-label="카카오맵 바로가기">
       <a href="https://map.kakao.com/?q=%ED%8F%AC%ED%95%AD%20APCTP" target="_blank" rel="noreferrer"><span>01</span> 포항 APCTP 위치 ↗</a>

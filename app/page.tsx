@@ -61,7 +61,7 @@ export default function Home() {
         <KakaoMap />
         <div className="route-grid">
           <article><span className="route-index">VENUE</span><h3>포항 APCTP</h3><p>아시아태평양이론물리센터에서 진행합니다.</p></article>
-          <article><span className="route-index">ROOM</span><h3>강의실 TBA</h3><p>건물 내 강의실과 상세 동선은 확정 후 안내합니다.</p></article>
+          <article><span className="route-index">ROOM</span><h3>512호</h3><p>워크숍은 APCTP 512호에서 진행합니다.</p></article>
           <article><span className="route-index">ARRIVAL</span><h3>13:15 개회</h3><p>첫 발표는 13:20에 시작합니다.</p></article>
         </div>
       </section>

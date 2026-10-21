@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   icons: { icon: "/favicon.svg", shortcut: "/favicon.svg" },
   openGraph: {
     title: "2026 가을 워크숍 | 경제사회물리연구회",
-    description: "2026. 11. 13 (금) · 포항 APCTP · 강의실 TBA",
+    description: "2026. 11. 13 (금) · 포항 APCTP · 512호",
 
     locale: "ko_KR",
     type: "website",
