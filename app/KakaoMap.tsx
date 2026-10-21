@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 
 declare global { interface Window { kakao?: any } }
 
-const places = [{ label: "포항 APCTP", query: "포스텍 무은재기념관", marker: "1" }];
+const places = [{ label: "APCTP (무은재기념관) 512호 강의실", query: "포스텍 무은재기념관", marker: "1" }];
 
 export function KakaoMap() {
   const mapRef = useRef<HTMLDivElement>(null);
@@ -30,7 +30,7 @@ export function KakaoMap() {
       window.kakao.maps.load(() => {
       const kakao = window.kakao;
       if (!kakao || !mapRef.current) return;
-      const map = new kakao.maps.Map(mapRef.current, { center: new kakao.maps.LatLng(35.233, 129.082), level: 4 });
+      let map: any;
       const service = new kakao.maps.services.Places();
       const bounds = new kakao.maps.LatLngBounds();
       let done = 0;
@@ -38,6 +38,8 @@ export function KakaoMap() {
         done += 1;
         if (status === kakao.maps.services.Status.OK && result[0]) {
           const point = new kakao.maps.LatLng(Number(result[0].y), Number(result[0].x));
+          if (!mapRef.current) return;
+          map = new kakao.maps.Map(mapRef.current, { center: point, level: 3 });
           bounds.extend(point);
           const marker = new kakao.maps.Marker({ map, position: point });
           const info = new kakao.maps.InfoWindow({ content: `<div style="padding:8px 10px;font:600 13px sans-serif;white-space:nowrap">${place.marker}. ${place.label}</div>` });
@@ -49,6 +51,7 @@ export function KakaoMap() {
               const mobile = window.matchMedia("(max-width: 760px)").matches;
               map.relayout();
               map.setBounds(bounds, mobile ? 24 : 56, mobile ? 20 : 56, mobile ? 24 : 56, mobile ? 20 : 56);
+              map.setLevel(3);
             };
             window.requestAnimationFrame(fitViewport);
             window.addEventListener("resize", fitViewport);

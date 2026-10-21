@@ -4,7 +4,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://econophysics-korea.vercel.app"),
   title: "2026 가을 워크숍 | 경제사회물리연구회",
-  description: "2026년 11월 13일 포항 APCTP에서 열리는 경제사회물리연구회 가을 워크숍 안내",
+  description: "2026년 11월 13일 APCTP (포스텍 무은재기념관) 512호 강의실에서 열리는 경제사회물리연구회 가을 워크숍 안내",
   icons: { icon: "/favicon.svg", shortcut: "/favicon.svg" },
   openGraph: {
     title: "2026 가을 워크숍 | 경제사회물리연구회",
