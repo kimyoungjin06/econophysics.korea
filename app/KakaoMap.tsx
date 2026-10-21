@@ -4,11 +4,7 @@ import { useEffect, useRef, useState } from "react";
 
 declare global { interface Window { kakao?: any } }
 
-const places = [
-  { label: "부산대문창회관 정류장", query: "부산대문창회관 정류장", marker: "1" },
-  { label: "부산대학교 제2물리관", query: "부산대학교 제2물리관", marker: "2" },
-  { label: "효원주가", query: "부산 효원주가", marker: "3" },
-];
+const places = [{ label: "포항 APCTP", query: "포항 아시아태평양이론물리센터", marker: "1" }];
 
 export function KakaoMap() {
   const mapRef = useRef<HTMLDivElement>(null);
@@ -69,13 +65,11 @@ export function KakaoMap() {
 
   return <>
     <div className="map-wrap">
-      <div ref={mapRef} className="map-canvas" role="img" aria-label="부산대문창회관 정류장, 부산대학교 제2물리관, 효원주가 위치 지도" />
-      {status !== "ready" ? <div className="map-fallback"><div className="map-copy"><small>KAKAO MAP</small><strong>부산대학교 제2물리관 106호</strong><p>{status === "loading" ? "지도를 불러오는 중입니다." : "지도를 불러오지 못했습니다. 아래 카카오맵 링크를 이용해 주세요."}</p></div></div> : null}
+      <div ref={mapRef} className="map-canvas" role="img" aria-label="포항 APCTP 위치 지도" />
+      {status !== "ready" ? <div className="map-fallback"><div className="map-copy"><small>KAKAO MAP</small><strong>포항 APCTP · 강의실 TBA</strong><p>{status === "loading" ? "지도를 불러오는 중입니다." : "지도를 불러오지 못했습니다. 아래 카카오맵 링크를 이용해 주세요."}</p></div></div> : null}
     </div>
     <nav className="map-links" aria-label="카카오맵 바로가기">
-      <a href="https://map.kakao.com/?q=%EB%B6%80%EC%82%B0%EB%8C%80%EC%97%AD" target="_blank" rel="noreferrer"><span>01</span> 부산대역 위치</a>
-      <a href="https://map.kakao.com/?q=%EB%B6%80%EC%82%B0%EB%8C%80%ED%95%99%EA%B5%90%20%EC%A0%9C2%EB%AC%BC%EB%A6%AC%EA%B4%80" target="_blank" rel="noreferrer"><span>02</span> 행사장 위치</a>
-      <a href="https://map.kakao.com/?q=%ED%9A%A8%EC%9B%90%EC%A3%BC%EA%B0%80" target="_blank" rel="noreferrer"><span>03</span> 저녁 장소</a>
+      <a href="https://map.kakao.com/?q=%ED%8F%AC%ED%95%AD%20APCTP" target="_blank" rel="noreferrer"><span>01</span> 포항 APCTP 위치 ↗</a>
     </nav>
   </>;
 }

@@ -1,9 +1,9 @@
 import Image from "next/image";
 import { KakaoMap } from "./KakaoMap";
-import event from "../content/events/2026-summer-workshop.json";
+import event from "../content/events/2026-autumn-workshop.json";
 
-const dayOne = event.schedule.filter((item) => item.date === "2026-08-21");
-const dayTwo = event.schedule.filter((item) => item.date === "2026-08-22");
+const registrationUrl: string | null = event.registrationUrl;
+const registrationDeadline: string | null = event.registrationDeadline;
 
 export default function Home() {
   return (
@@ -15,13 +15,13 @@ export default function Home() {
           <div><a href="#program">프로그램</a><a href="#location">오시는 길</a><a href="/about">연구회 소개</a></div>
         </nav>
         <div className="hero-body shell">
-          <p className="eyebrow">ECONOPHYSICS KOREA · SUMMER WORKSHOP 2026</p>
-          <h1>2026 여름<br />워크숍</h1>
+          <p className="eyebrow">ECONOPHYSICS KOREA · AUTUMN WORKSHOP 2026</p>
+          <h1>2026 가을<br />워크숍</h1>
           <p className="hero-description">경제·금융·사회 현상을 주제로 연구 결과와 분석 방법을 공유하고<br />향후 연구 방향과 협업 주제를 논의합니다.</p>
           <div className="hero-meta">
-            <div><small>DATE</small><strong>2026. 08. 21—22</strong></div>
-            <div><small>VENUE</small><strong>부산대학교 제2물리관 106호</strong></div>
-            <div><small>PARTICIPANTS</small><strong>30명+</strong></div>
+            <div><small>DATE</small><strong>2026. 11. 13 (금)</strong></div>
+            <div><small>VENUE</small><strong>{event.venue}</strong></div>
+            <div><small>TIME</small><strong>13:15—17:00</strong></div>
           </div>
           <div className="hero-actions">
             <a className="button primary" href="#program">프로그램 확인 <span>↓</span></a>
@@ -33,12 +33,12 @@ export default function Home() {
       <section className="intro shell" id="overview">
         <div><p className="section-no">01 / OVERVIEW</p><h2>워크숍 개요</h2></div>
         <div className="intro-copy">
-          <p>경제·금융·사회 현상에 관한 최신 연구와 분석 방법을 공유합니다. 발표 이후에는 연구회의 운영 방향과 공동 연구 주제를 논의합니다.</p>
+          <p>11월 13일 금요일, 포항 APCTP에서 경제사회물리연구회 워크숍을 개최합니다. 한양대학교 문준영 교수님과 경상국립대학교 물리학과 이상훈 교수님을 모시고 연구와 아이디어를 나눕니다.</p>
           <div className="participation-status">
-            <span>참가 신청 마감</span>
-            <strong>참석 예정 30명+</strong>
+            <span>{registrationUrl ? "참가 신청 접수" : "참가 신청 준비 중"}</span>
+            {registrationUrl ? <a href={registrationUrl} target="_blank" rel="noreferrer">Google Forms에서 신청 ↗</a> : <strong>Google Forms 추후 공개</strong>}
           </div>
-          <p className="history-note"><b>SINCE 2011</b><span>기존 아카이브 기준, 이번 부산 워크숍은 27번째 모임입니다.</span><a href="/about">연구회 소개 →</a></p>
+          <p className="history-note"><b>SINCE 2011</b><span>2011년부터 이어 온 경제사회물리연구회의 모임입니다.</span><a href="/about">연구회 소개 →</a></p>
         </div>
       </section>
 
@@ -46,16 +46,12 @@ export default function Home() {
         <div className="shell">
           <header className="section-head"><div><p className="section-no">02 / PROGRAM</p><h2>프로그램</h2></div><span className="status">{event.status}</span></header>
           <div className="day-block">
-            <div className="day-label"><strong>21</strong><span>AUG<br />FRI</span></div>
+            <div className="day-label"><strong>13</strong><span>NOV<br />FRI</span></div>
             <div className="schedule">
-              {dayOne.map((item) => <article className="schedule-row" key={item.time}>
-                <time>{item.time}</time><div><h3>{item.title}</h3><p>{item.person}</p></div><span className="tag">{item.kind}</span>
+              {event.schedule.map((item) => <article className="schedule-row" key={item.time}>
+                <time>{item.time}</time><div><h3>{item.title}</h3>{item.person ? <p>{item.person}</p> : null}{item.abstract ? <p>초록: {item.abstract}</p> : null}</div><span className="tag">{item.kind}</span>
               </article>)}
             </div>
-          </div>
-          <div className="day-block second-day">
-            <div className="day-label"><strong>22</strong><span>AUG<br />SAT</span></div>
-            <div className="schedule">{dayTwo.map((item) => <article className="schedule-row" key={item.time}><time>{item.time}</time><div><h3>{item.title}</h3><p>{item.person}</p></div><span className="tag">{item.kind}</span></article>)}</div>
           </div>
         </div>
       </section>
@@ -64,17 +60,17 @@ export default function Home() {
         <header className="section-head"><div><p className="section-no">03 / LOCATION</p><h2>오시는 길</h2></div></header>
         <KakaoMap />
         <div className="route-grid">
-          <article><span className="route-index">STEP 1</span><h3>부산대역</h3><p>인근 정류장에서 마을버스 <b>금정구7</b> 탑승</p></article>
-          <article><span className="route-index">STEP 2</span><h3>부산대문창회관 정류장</h3><p>6개 정류장 · 약 8분 이동</p></article>
-          <article><span className="route-index">STEP 3</span><h3>제2물리관 106호</h3><p>정류장에서 도보 약 2분 · 제1물리관과 실내 연결</p></article>
+          <article><span className="route-index">VENUE</span><h3>포항 APCTP</h3><p>아시아태평양이론물리센터에서 진행합니다.</p></article>
+          <article><span className="route-index">ROOM</span><h3>강의실 TBA</h3><p>건물 내 강의실과 상세 동선은 확정 후 안내합니다.</p></article>
+          <article><span className="route-index">ARRIVAL</span><h3>13:15 개회</h3><p>첫 발표는 13:20에 시작합니다.</p></article>
         </div>
       </section>
 
       <section className="notices" id="notices">
         <div className="shell notice-grid">
-          <article><span>DINNER</span><h3>효원주가</h3><p>8월 21일 공식 일정 후 이동 · 제2물리관에서 약 600m · 도보 약 10분</p><a href="https://map.kakao.com/?q=%ED%9A%A8%EC%9B%90%EC%A3%BC%EA%B0%80" target="_blank" rel="noreferrer">카카오맵에서 보기 ↗</a></article>
-          <article><span>PARKING</span><h3>주차 안내</h3><p>교내 주차 공간이 협소하며, 할인 적용 후에도 주차 요금 부담이 있을 수 있습니다. 가급적 대중교통을 이용해 주세요. 차량 이용 시 행사 당일 운영진에게 주차 할인권을 문의해 주세요.</p></article>
-          <article><span>STAY</span><h3>숙박 안내</h3><p>금번 모임에서는 별도의 숙소를 지원하지 않습니다. 숙박이 필요한 참가자께서는 개별적으로 예약해 주세요.</p></article>
+          <article><span>REGISTRATION</span><h3>참가 신청</h3><p>{registrationUrl ? "아래 Google Forms에서 참가 신청을 해 주세요." : "Google Forms로 참가 신청을 받을 예정입니다. 신청 링크는 추후 공개합니다."}</p><p>{registrationDeadline ? `신청 마감: ${registrationDeadline}` : "신청 마감일 추후 안내"}</p>{registrationUrl ? <a href={registrationUrl} target="_blank" rel="noreferrer">참가 신청 ↗</a> : null}</article>
+          <article><span>PARTICIPATION</span><h3>참가 안내</h3><p>참가비 {event.registrationFee} · {event.eligibility}</p><p>관심 있는 분 누구나 참여하실 수 있습니다.</p></article>
+          <article><span>CONTACT</span><h3>행사 문의</h3><p>행사 관련 문의는 연구회 이메일로 보내 주세요.</p><a href="mailto:econophysics.korea@gmail.com">econophysics.korea@gmail.com</a></article>
         </div>
       </section>
 

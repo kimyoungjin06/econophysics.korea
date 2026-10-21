@@ -1,6 +1,6 @@
 # 경제사회물리연구회
 
-2026 여름 워크숍 행사 안내 사이트입니다.
+2026 가을 워크숍 행사 안내 사이트입니다.
 
 ## 환경 변수
 
@@ -13,4 +13,6 @@ Kakao Developers의 JavaScript SDK 도메인에는 로컬 주소와 실제 Verce
 
 ## 콘텐츠 수정
 
-행사 정보는 `content/events/2026-summer-workshop.json`, 지도 연동은 `app/KakaoMap.tsx`에서 관리합니다.
+행사 정보는 `content/events/2026-autumn-workshop.json`, 지도 연동은 `app/KakaoMap.tsx`에서 관리합니다.
+
+이전 여름 워크숍 데이터는 `content/events/2026-summer-workshop.json`에 보관합니다. 참가 신청 폼이 준비되면 새 행사 데이터의 `registrationUrl`에 URL을 입력하면 신청 링크가 표시됩니다.
