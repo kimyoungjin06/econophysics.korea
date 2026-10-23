@@ -49,7 +49,7 @@ export default function Home() {
             <div className="day-label"><strong>13</strong><span>NOV<br />FRI</span></div>
             <div className="schedule">
               {event.schedule.map((item) => <article className="schedule-row" key={item.time}>
-                <time>{item.time}</time><div><h3>{item.title}</h3>{item.person ? <p>{item.person}</p> : null}{item.abstract ? <p>초록: {item.abstract}</p> : null}</div><span className="tag">{item.kind}</span>
+                <time>{item.time}</time><div><h3>{item.title}</h3>{item.person ? <p>{item.person}</p> : null}</div><span className="tag">{item.kind}</span>
               </article>)}
             </div>
           </div>
