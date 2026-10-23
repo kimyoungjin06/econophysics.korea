@@ -13,7 +13,7 @@
     { "date": "2026-11-13", "time": "13:15—13:20", "title": "개회사", "person": "", "kind": "개회" },
     { "date": "2026-11-13", "time": "13:20—14:50", "title": "발표 제목 TBA", "person": "문준영 교수 · 한양대학교 데이터사이언스학부 심리뇌과학전공", "abstract": "TBA", "kind": "발표" },
     { "date": "2026-11-13", "time": "14:50—15:30", "title": "휴식", "person": "", "kind": "휴식" },
-    { "date": "2026-11-13", "time": "15:30—17:00", "title": "발표 제목 TBA", "person": "이상훈 교수 · 경상국립대학교 물리학과", "abstract": "TBA", "kind": "발표" },
+    { "date": "2026-11-13", "time": "15:30—17:00", "title": "Harnessing inconsistency: Revealing network intricacies in communities and geometric embeddings", "person": "이상훈 교수 · 경상국립대학교 물리학과", "abstract": "TBA", "kind": "발표" },
     { "date": "2026-11-13", "time": "17:00—", "title": "폐회사 및 식사 장소 이동", "person": "", "kind": "폐회" }
   ]
 }
