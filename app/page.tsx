@@ -2,9 +2,6 @@ import Image from "next/image";
 import { KakaoMap } from "./KakaoMap";
 import event from "../content/events/2026-autumn-workshop.json";
 
-const registrationUrl: string | null = event.registrationUrl;
-const registrationDeadline: string | null = event.registrationDeadline;
-
 export default function Home() {
   return (
     <main id="main-content">
@@ -17,7 +14,8 @@ export default function Home() {
         <div className="hero-body shell">
           <p className="eyebrow">ECONOPHYSICS KOREA · AUTUMN WORKSHOP 2026</p>
           <h1>2026 가을<br />워크숍</h1>
-          <p className="hero-description">경제·금융·사회 현상을 주제로 연구 결과와 분석 방법을 공유하고<br />향후 연구 방향과 협업 주제를 논의합니다.</p>
+          <p className="hero-subtitle">복잡계의 구조와 동역학</p>
+          <p className="hero-description">경제사회물리연구회는 물리학의 관점과 방법으로<br />경제와 사회의 다양한 현상을 연구합니다.</p>
           <div className="hero-meta">
             <div><small>DATE</small><strong>2026. 11. 13 (금)</strong></div>
             <div><small>VENUE</small><strong>{event.venue}</strong></div>
@@ -33,12 +31,12 @@ export default function Home() {
       <section className="intro shell" id="overview">
         <div><p className="section-no">01 / OVERVIEW</p><h2>워크숍 개요</h2></div>
         <div className="intro-copy">
-          <p>11월 13일 금요일, APCTP (포스텍 무은재기념관) 512호 강의실에서 경제사회물리연구회 워크숍을 개최합니다. 한양대학교 문준영 교수님과 경상국립대학교 물리학과 이상훈 교수님을 모시고 연구와 아이디어를 나눕니다.</p>
+          <p>11월 13일 금요일, APCTP(포스텍 무은재기념관) 512호 강의실에서 가을 워크숍이 열립니다. 이번 발표는 한양대학교 문준영 교수님과 경상국립대학교 물리학과 이상훈 교수님이 맡아 주십니다.</p>
           <div className="participation-status">
-            <span>{registrationUrl ? "참가 신청 접수" : "참가 신청 준비 중"}</span>
-            {registrationUrl ? <a href={registrationUrl} target="_blank" rel="noreferrer">Google Forms에서 신청 ↗</a> : <strong>Google Forms 추후 공개</strong>}
+            <span>사전 참가 신청 마감</span>
+            <a href="mailto:econophysics.korea@gmail.com">참가 신청은 이메일로 문의해 주세요 ↗</a>
           </div>
-          <p className="history-note"><b>SINCE 2011</b><span>2011년부터 이어 온 경제사회물리연구회의 모임입니다.</span><a href="/about">연구회 소개 →</a></p>
+          <p className="history-note"><b>SINCE 2011</b><span>경제사회물리연구회는 2011년 2월에 시작했습니다.</span><a href="/about">연구회 소개 →</a></p>
         </div>
       </section>
 
@@ -68,7 +66,7 @@ export default function Home() {
 
       <section className="notices" id="notices">
         <div className="shell notice-grid">
-          <article><span>REGISTRATION</span><h3>참가 신청</h3><p>{registrationUrl ? "아래 Google Forms에서 참가 신청을 해 주세요." : "Google Forms로 참가 신청을 받을 예정입니다. 신청 링크는 추후 공개합니다."}</p><p>{registrationDeadline ? `신청 마감: ${registrationDeadline}` : "신청 마감일 추후 안내"}</p>{registrationUrl ? <a href={registrationUrl} target="_blank" rel="noreferrer">참가 신청 ↗</a> : null}</article>
+          <article><span>REGISTRATION</span><h3>참가 신청</h3><p>이메일로 안내한 Google Forms 사전 참가 신청은 마감되었습니다. 참가 신청은 연구회 이메일로 문의해 주세요.</p><a href="mailto:econophysics.korea@gmail.com">econophysics.korea@gmail.com</a></article>
           <article><span>PARTICIPATION</span><h3>참가 안내</h3><p>참가비 {event.registrationFee} · {event.eligibility}</p><p>관심 있는 분 누구나 참여하실 수 있습니다.</p></article>
           <article><span>CONTACT</span><h3>행사 문의</h3><p>행사 관련 문의는 연구회 이메일로 보내 주세요.</p><a href="mailto:econophysics.korea@gmail.com">econophysics.korea@gmail.com</a></article>
         </div>
@@ -76,10 +74,10 @@ export default function Home() {
 
       <section className="partners" aria-labelledby="partners-title">
         <div className="shell partners-inner">
-          <div><p className="section-no">04 / ORGANIZERS</p><h2 id="partners-title">주최·주관<br />및 후원</h2><p className="partners-copy">이번 워크숍을 함께 준비하고 지원하는 기관입니다.</p></div>
+          <div><p className="section-no">04 / ORGANIZERS</p><h2 id="partners-title">주최·주관<br />및 후원</h2></div>
           <dl className="partner-list">
             <div><dt>주최</dt><dd>경제사회물리연구회</dd></div>
-            <div><dt>공동 주관</dt><dd>전남대학교 데이터사이언스대학원<br />부산대학교 물리학과</dd></div>
+            <div><dt>공동 주관</dt><dd>전남대학교 데이터사이언스대학원<br />국가수리과학연구소<br />조선대학교</dd></div>
             <div className="supporter-row"><dt>후원</dt><dd><Image src="/apctp-logo.svg" width={319} height={40} alt="아시아태평양이론물리센터 APCTP" /><span>Asia Pacific Center for Theoretical Physics</span></dd></div>
           </dl>
         </div>
