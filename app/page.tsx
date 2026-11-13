@@ -17,9 +17,9 @@ export default function Home() {
           <p className="hero-subtitle">복잡계의 구조와 동역학</p>
           <p className="hero-description">경제사회물리연구회는 물리학의 관점과 방법으로<br />경제와 사회의 다양한 현상을 연구합니다.</p>
           <div className="hero-meta">
-            <div><small>DATE</small><strong>2026. 11. 13 (금)</strong></div>
+            <div><small>DATE</small><strong>2026. 11. 13–14 (금–토)</strong></div>
             <div><small>VENUE</small><strong>{event.venue}</strong></div>
-            <div><small>TIME</small><strong>13:15—17:00</strong></div>
+            <div><small>TIME</small><strong>금 13:15—17:00<br />토 10:00—12:00</strong></div>
           </div>
           <div className="hero-actions">
             <a className="button primary" href="#program">프로그램 확인 <span>↓</span></a>
@@ -31,7 +31,7 @@ export default function Home() {
       <section className="intro shell" id="overview">
         <div><p className="section-no">01 / OVERVIEW</p><h2>워크숍 개요</h2></div>
         <div className="intro-copy">
-          <p>11월 13일 금요일, APCTP(포스텍 무은재기념관) 512호 강의실에서 가을 워크숍이 열립니다. 이번 발표는 한양대학교 문준영 교수님과 경상국립대학교 물리학과 이상훈 교수님이 맡아 주십니다.</p>
+          <p>11월 13일(금)부터 14일(토)까지 APCTP(포스텍 무은재기념관) 512호 강의실에서 가을 워크숍이 열립니다. 금요일 발표는 한양대학교 문준영 교수님과 경상국립대학교 물리학과 이상훈 교수님이 맡아 주십니다. 토요일에는 향후 모임 발전 방향과 공동 연구를 논의합니다.</p>
           <div className="participation-status">
             <span>사전 참가 신청 마감</span>
             <a href="mailto:econophysics.korea@gmail.com">참가 신청은 이메일로 문의해 주세요 ↗</a>
@@ -46,7 +46,15 @@ export default function Home() {
           <div className="day-block">
             <div className="day-label"><strong>13</strong><span>NOV<br />FRI</span></div>
             <div className="schedule">
-              {event.schedule.map((item) => <article className="schedule-row" key={item.time}>
+              {event.schedule.filter((item) => item.date === event.startDate).map((item) => <article className="schedule-row" key={item.time}>
+                <time>{item.time}</time><div><h3>{item.title}</h3>{item.person ? <p>{item.person}</p> : null}</div><span className="tag">{item.kind}</span>
+              </article>)}
+            </div>
+          </div>
+          <div className="day-block second-day">
+            <div className="day-label"><strong>14</strong><span>NOV<br />SAT</span></div>
+            <div className="schedule">
+              {event.schedule.filter((item) => item.date === event.endDate).map((item) => <article className="schedule-row" key={item.time}>
                 <time>{item.time}</time><div><h3>{item.title}</h3>{item.person ? <p>{item.person}</p> : null}</div><span className="tag">{item.kind}</span>
               </article>)}
             </div>
