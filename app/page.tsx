@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { KakaoMap } from "./KakaoMap";
-import event from "../content/events/2026-autumn-workshop.json";
+import { event, eventDateRange, eventDays } from "./event";
 
 export default function Home() {
   return (
@@ -12,18 +12,19 @@ export default function Home() {
           <div><a href="#program">프로그램</a><a href="#location">오시는 길</a><a href="/about">연구회 소개</a></div>
         </nav>
         <div className="hero-body shell">
-          <p className="eyebrow">ECONOPHYSICS KOREA · AUTUMN WORKSHOP 2026</p>
-          <h1>2026 가을<br />워크숍</h1>
-          <p className="hero-subtitle">복잡계의 구조와 동역학</p>
+          <p className="eyebrow">{event.eyebrow}</p>
+          <h1>{event.displayTitle.map((line, index) => <span key={index}>{index > 0 && <br />}{line}</span>)}</h1>
+          {event.subtitle && <p className="hero-subtitle">{event.subtitle}</p>}
           <p className="hero-description">경제사회물리연구회는 물리학의 관점과 방법으로<br />경제와 사회의 다양한 현상을 연구합니다.</p>
           <div className="hero-meta">
-            <div><small>DATE</small><strong>2026. 11. 13–14 (금–토)</strong></div>
+            <div><small>DATE</small><strong>{eventDateRange}</strong></div>
             <div><small>VENUE</small><strong>{event.venue}</strong></div>
-            <div><small>TIME</small><strong>금 13:15—17:00<br />토 10:00—12:00</strong></div>
+            <div><small>TIME</small><strong>{eventDays.map((day) => <span key={day.date} style={{ display: "block" }}>{day.ko} {day.items[0].time.split("—")[0]}—{day.items.at(-1)!.time.split("—").filter(Boolean).at(-1)}</span>)}</strong></div>
           </div>
           <div className="hero-actions">
             <a className="button primary" href="#program">프로그램 확인 <span>↓</span></a>
             <a className="button ghost" href="#location">오시는 길</a>
+            <a className="button ghost" href="/poster" data-action="print-poster">포스터 출력</a>
           </div>
         </div>
       </section>
@@ -31,10 +32,10 @@ export default function Home() {
       <section className="intro shell" id="overview">
         <div><p className="section-no">01 / OVERVIEW</p><h2>워크숍 개요</h2></div>
         <div className="intro-copy">
-          <p>11월 13일(금)부터 14일(토)까지 APCTP(포스텍 무은재기념관) 512호 강의실에서 가을 워크숍이 열립니다. 금요일 발표는 한양대학교 문준영 교수님과 경상국립대학교 물리학과 이상훈 교수님이 맡아 주십니다. 토요일에는 향후 모임 발전 방향과 공동 연구를 논의합니다.</p>
+          <p>{event.overview}</p>
           <div className="participation-status">
             <span>사전 참가 신청 마감</span>
-            <a href="mailto:econophysics.korea@gmail.com">참가 신청은 이메일로 문의해 주세요 ↗</a>
+            <a href={`mailto:${event.contact}`}>참가 신청은 이메일로 문의해 주세요 ↗</a>
           </div>
           <p className="history-note"><b>SINCE 2011</b><span>경제사회물리연구회는 2011년 2월에 시작했습니다.</span><a href="/about">연구회 소개 →</a></p>
         </div>
@@ -43,22 +44,14 @@ export default function Home() {
       <section className="program" id="program">
         <div className="shell">
           <header className="section-head"><div><p className="section-no">02 / PROGRAM</p><h2>프로그램</h2></div><span className="status">{event.status}</span></header>
-          <div className="day-block">
-            <div className="day-label"><strong>13</strong><span>NOV<br />FRI</span></div>
+          {eventDays.map((day, index) => <div className={index === 0 ? "day-block" : "day-block second-day"} key={day.date}>
+            <div className="day-label"><strong>{day.day}</strong><span>{day.month}<br />{day.weekday}</span></div>
             <div className="schedule">
-              {event.schedule.filter((item) => item.date === event.startDate).map((item) => <article className="schedule-row" key={item.time}>
+              {day.items.map((item) => <article className="schedule-row" key={item.time}>
                 <time>{item.time}</time><div><h3>{item.title}</h3>{item.person ? <p>{item.person}</p> : null}</div><span className="tag">{item.kind}</span>
               </article>)}
             </div>
-          </div>
-          <div className="day-block second-day">
-            <div className="day-label"><strong>14</strong><span>NOV<br />SAT</span></div>
-            <div className="schedule">
-              {event.schedule.filter((item) => item.date === event.endDate).map((item) => <article className="schedule-row" key={item.time}>
-                <time>{item.time}</time><div><h3>{item.title}</h3>{item.person ? <p>{item.person}</p> : null}</div><span className="tag">{item.kind}</span>
-              </article>)}
-            </div>
-          </div>
+          </div>)}
         </div>
       </section>
 
@@ -74,9 +67,9 @@ export default function Home() {
 
       <section className="notices" id="notices">
         <div className="shell notice-grid">
-          <article><span>REGISTRATION</span><h3>참가 신청</h3><p>이메일로 안내한 Google Forms 사전 참가 신청은 마감되었습니다. 참가 신청은 연구회 이메일로 문의해 주세요.</p><a href="mailto:econophysics.korea@gmail.com">econophysics.korea@gmail.com</a></article>
+          <article><span>REGISTRATION</span><h3>참가 신청</h3><p>이메일로 안내한 Google Forms 사전 참가 신청은 마감되었습니다. 참가 신청은 연구회 이메일로 문의해 주세요.</p><a href={`mailto:${event.contact}`}>{event.contact}</a></article>
           <article><span>PARTICIPATION</span><h3>참가 안내</h3><p>참가비 {event.registrationFee} · {event.eligibility}</p><p>관심 있는 분 누구나 참여하실 수 있습니다.</p></article>
-          <article><span>CONTACT</span><h3>행사 문의</h3><p>행사 관련 문의는 연구회 이메일로 보내 주세요.</p><a href="mailto:econophysics.korea@gmail.com">econophysics.korea@gmail.com</a></article>
+          <article><span>CONTACT</span><h3>행사 문의</h3><p>행사 관련 문의는 연구회 이메일로 보내 주세요.</p><a href={`mailto:${event.contact}`}>{event.contact}</a></article>
         </div>
       </section>
 
@@ -84,14 +77,14 @@ export default function Home() {
         <div className="shell partners-inner">
           <div><p className="section-no">04 / ORGANIZERS</p><h2 id="partners-title">주최·주관<br />및 후원</h2></div>
           <dl className="partner-list">
-            <div><dt>주최</dt><dd>경제사회물리연구회</dd></div>
-            <div><dt>공동 주관</dt><dd>전남대학교 데이터사이언스대학원<br />국가수리과학연구소<br />조선대학교</dd></div>
-            <div className="supporter-row"><dt>후원</dt><dd><Image src="/apctp-logo.svg" width={319} height={40} alt="아시아태평양이론물리센터 APCTP" /><span>Asia Pacific Center for Theoretical Physics</span></dd></div>
+            <div><dt>주최</dt><dd>{event.organizers.join(" · ")}</dd></div>
+            <div><dt>공동 주관</dt><dd>{event.coOrganizers.map((name, index) => <span key={name}>{index > 0 && <br />}{name}</span>)}</dd></div>
+            {event.supporters.map((supporter) => <div className="supporter-row" key={supporter.name}><dt>후원</dt><dd>{supporter.logo ? <Image src={supporter.logo} width={319} height={40} alt={supporter.name} /> : supporter.name}{supporter.englishName && <span>{supporter.englishName}</span>}</dd></div>)}
           </dl>
         </div>
       </section>
 
-      <footer><div className="shell footer-inner"><div><span className="footer-mark">경사연</span><p>경제사회물리연구회<br /><a href="mailto:econophysics.korea@gmail.com">econophysics.korea@gmail.com</a></p></div><div className="footer-links"><a href="/about">연구회 소개</a><a href="#top">맨 위로 ↑</a><a href="https://sites.google.com/view/econophysics/" target="_blank" rel="noreferrer">기존 Google Sites 보기 ↗</a></div></div></footer>
+      <footer><div className="shell footer-inner"><div><span className="footer-mark">경사연</span><p>경제사회물리연구회<br /><a href={`mailto:${event.contact}`}>{event.contact}</a></p></div><div className="footer-links"><a href="/about">연구회 소개</a><a href="#top">맨 위로 ↑</a><a href="https://sites.google.com/view/econophysics/" target="_blank" rel="noreferrer">기존 Google Sites 보기 ↗</a></div></div></footer>
       <nav className="mobile-quick-nav" aria-label="모바일 빠른 메뉴"><a href="#program">일정</a><a href="#location">길찾기</a><a href="#notices">현장 안내</a></nav>
     </main>
   );

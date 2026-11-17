@@ -1,14 +1,15 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { event, eventDateRange, siteUrl } from "./event";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://econophysics-korea.vercel.app"),
-  title: "2026 가을 워크숍 | 경제사회물리연구회",
-  description: "2026년 11월 13–14일(금–토) APCTP (포스텍 무은재기념관) 512호 강의실에서 열리는 경제사회물리연구회 가을 워크숍 안내",
+  metadataBase: new URL(siteUrl),
+  title: event.title,
+  description: `${eventDateRange} · ${event.venue} · ${event.title}`,
   icons: { icon: "/favicon.svg", shortcut: "/favicon.svg" },
   openGraph: {
-    title: "2026 가을 워크숍 | 경제사회물리연구회",
-    description: "2026. 11. 13–14 (금–토) · APCTP (포스텍 무은재기념관) 512호 강의실",
+    title: event.title,
+    description: `${eventDateRange} · ${event.venue} · ${event.title}`,
 
     locale: "ko_KR",
     type: "website",

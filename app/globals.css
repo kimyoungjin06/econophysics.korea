@@ -100,7 +100,7 @@ a:focus-visible {
 .hero-meta div + div { padding-left: 22px; border-left: 1px solid #ffffff45; }
 .hero-meta small { color: #96979a; font-size: 10px; letter-spacing: .17em; }
 .hero-meta strong { font-size: 16px; }
-.hero-actions { display: flex; gap: 8px; margin-top: 28px; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 28px; }
 .button {
   min-height: 48px;
   display: inline-flex;
